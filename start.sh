@@ -6,7 +6,7 @@ export NVM_CURRENT_VERSION=`nvm --version`
 
 export NVM_LATEST_VERSION=`curl -is https://api.github.com/repos/creationix/nvm/releases/latest | grep -o '"name": "[^"]*"' | grep -o 'v\d*\.\d*.\d*'`
 
-if [ $NVM_CURRENT_VERSION != $NVM_LASTEST_VERSION ]; then
+if [ "$NVM_CURRENT_VERSION" -ne "$NVM_LASTEST_VERSION" ]; then
 	echo `updating nvm from $NVM_CURRENT_VERSION to $NVM_LASTEST_VERSION`
 
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/$NVM_LATEST_VERSION/install.sh | bash
