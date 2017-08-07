@@ -3,27 +3,33 @@
 echo 'removing temp'
 rm -rf temp
 
-echo 'trusting github.com'
-ssh-keyscan github.com >> ~/.ssh/known_hosts
+echo 'creating temp'
+mkdir temp
 
-echo 'cloning iron-iot-hub'
-git clone git@github.com:ironman9967/iron-iot-hub.git temp
+echo 'downloading latest cloud release'
+wget https://github.com/ironman9967/iron-iot-hub/archive/latest.tar.gz
+
+echo 'extracting release'
+tar xvzf latest.tar.gz --transform 's/iron-iot-hub-latest/temp/'
+
+echo 'removing release tar'
+rm latest.tar.gz
+
+echo 'starting nvm'
+source ./common/scripts/start-nvm.sh cloud
 
 echo 'getting node version from cloud'
 nodeVersion=`wget -qO- http://iron-iot-cloud:9967/api/code/versions/node | grep -o ':".*' | grep -o '[^:"} ]*'`
 echo "node version is $nodeVersion"
 
-echo 'starting nvm'
-source ./common/scripts/start-nvm.sh
-
 echo "installing node $nodeVersion"
-nvm install $nodeVersion
+`nvm install $nodeVersion`
 
 echo "setting nvm default to $nodeVersion"
-nvm alias default $nodeVersion
+`nvm alias default $nodeVersion`
 
 echo "setting nvm to use $nodeVersion"
-nvm use $nodeVersion
+`nvm use $nodeVersion`
 
 echo 'navigating to temp'
 cd temp
