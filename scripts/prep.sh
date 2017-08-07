@@ -6,7 +6,7 @@ rm -rf temp
 echo 'creating temp'
 mkdir temp
 
-echo 'downloading latest cloud release'
+echo 'downloading latest hub release'
 wget https://github.com/ironman9967/iron-iot-hub/archive/latest.tar.gz
 
 echo 'extracting release'
