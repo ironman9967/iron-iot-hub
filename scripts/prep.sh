@@ -16,7 +16,7 @@ echo 'removing release tar'
 rm latest.tar.gz
 
 echo 'starting nvm'
-source ./common/scripts/start-nvm.sh cloud
+source ./common/scripts/start-nvm.sh hub
 
 echo 'getting node version from cloud'
 nodeVersion=`wget -qO- http://iron-iot-cloud:9967/api/code/versions/node | grep -o ':".*' | grep -o '[^:"} ]*'`
