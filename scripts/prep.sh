@@ -23,13 +23,13 @@ nodeVersion=`wget -qO- http://iron-iot-cloud:9967/api/code/versions/node | grep 
 echo "node version is $nodeVersion"
 
 echo "installing node $nodeVersion"
-`nvm install $nodeVersion`
+nvm install "$nodeVersion"
 
 echo "setting nvm default to $nodeVersion"
-`nvm alias default $nodeVersion`
+nvm alias default "$nodeVersion"
 
 echo "setting nvm to use $nodeVersion"
-`nvm use $nodeVersion`
+nvm use "$nodeVersion"
 
 echo 'navigating to temp'
 cd temp
