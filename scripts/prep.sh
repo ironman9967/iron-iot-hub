@@ -13,7 +13,7 @@ echo 'starting nvm'
 source ./common/scripts/start-nvm.sh
 
 echo 'getting node version from cloud'
-nodeVersion=wget -qO- http://iron-iot-cloud:9967/api/code/versions/node | grep -o ':".*' | grep -o '[^:"} ]*'
+nodeVersion=`wget -qO- http://iron-iot-cloud:9967/api/code/versions/node | grep -o ':".*' | grep -o '[^:"} ]*'`
 echo "node version is $nodeVersion"
 
 echo "installing node $nodeVersion"
