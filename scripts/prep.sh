@@ -9,13 +9,13 @@ mkdir temp
 echo 'requesting latest release uri'
 uri=`curl \
 	-H "Accept: application/vnd.github.v3+json" \
-	https://api.github.com/repos/ironman9967/iron-iot-cloud/releases/latest \
+	https://api.github.com/repos/ironman9967/iron-iot-hub/releases/latest \
 | grep -E '"tarball_url": ".*",?$' \
 | grep -o 'http[^",]*'`
 
 version=`echo $uri | grep -o '[^/]*$'`
 
-echo "downloading cloud release $version"
+echo "downloading hub release $version"
 rm -rf latest.tar.gz
 `wget -O latest.tar.gz $uri`
 
