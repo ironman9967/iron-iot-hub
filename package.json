@@ -9,7 +9,8 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "npm run build && chmod +x ./common/scripts/start.sh && ./common/scripts/start.sh",
 		"babel": "babel src --out-dir dist",
-		"dl-common": "wget https://raw.githubusercontent.com/ironman9967/iron-iot-common/master/scripts/prep.sh && chmod +x prep.sh && ./prep.sh && rm -rf prep.sh"
+		"dl-common": "wget https://raw.githubusercontent.com/ironman9967/iron-iot-common/master/scripts/prep.sh && chmod +x prep.sh && ./prep.sh && rm -rf prep.sh",
+		"release": "chmod +x ./common/scripts/release.sh && ./common/scripts/release.sh"
 	},
 	"repository": {
 		"type": "git",
